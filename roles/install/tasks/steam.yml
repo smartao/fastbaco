@@ -1,0 +1,11 @@
+---
+# tasks file for install
+  - name: setup apt repository Steam
+    apt_repository:
+      repo: "deb http://repo.steampowered.com/steam/ precise steam"
+      filename: valve-steam
+
+  - name: install Steam
+    package:
+      name: "steam"
+      state: present

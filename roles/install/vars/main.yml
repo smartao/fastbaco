@@ -1,8 +1,5 @@
 ---
-# vars file for fastbaco
-usuario: sergei
-teclado_ingles: "TRUE"
-
+# vars file for install
 pacotes_basicos:
   - baobab
   - bc

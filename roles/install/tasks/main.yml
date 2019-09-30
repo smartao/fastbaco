@@ -1,0 +1,5 @@
+---
+# tasks file for fastbaco
+  - name: Tarefas do Debian e derivados
+    import_tasks: debian.yml
+    when: ansible_os_family == "Debian"

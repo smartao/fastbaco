@@ -1,0 +1,53 @@
+---
+# tasks file for install
+  - name: Instalando Repositorio Numix
+    raw: apt-add-repository ppa:numix/ppa -y
+
+  - name: Instalando Repositorio Tilix
+    raw: add-apt-repository ppa:webupd8team/terminix -y 
+  
+  - name: Instalando Repositorio Notepadqq
+    raw: add-apt-repository ppa:notepadqq-team/notepadqq -y  
+  
+  - name: Instalando Pacotes Basicos
+    apt:
+      name: "{{ pacotes_basicos }}"
+      update_cache: yes
+      state: present
+  
+  - name:  Instalando Pacotes Rede
+    apt:
+      name: "{{ pacotes_rede }}"
+      state: present
+
+  - name: Instalando Pacotes Multimidia
+    apt:
+      name: "{{ pacotes_multimidia }}"
+      state: present
+
+  - name: Instalando Codecs Pacotes Codecs
+    apt:
+      name: "{{ pacotes_codecs }}"
+      state: present
+
+  - name: Instalando Pacotes dos PPAs
+    apt:
+      name: "{{ pacotes_ppa }}"
+      state: present
+
+  - name: Instalando Google Chrome
+    import_tasks: chrome.yml
+    tags: 
+      chrome
+      
+  - name: Instalando Steam
+    import_tasks: steam.yml
+    tags:    
+      steam  
+
+  - name: Atualizando todos os pacotes
+    apt: 
+      update_cache: yes
+      upgrade: full
+
+

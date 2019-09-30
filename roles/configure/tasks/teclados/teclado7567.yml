@@ -1,0 +1,6 @@
+---
+# tasks file for fastbaco
+  - name: Configurando Teclado em Ingles do Dell 7567
+    copy:
+      src: keyboard-dell-7567
+      dest: /etc/default/keyboard

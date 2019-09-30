@@ -1,9 +1,0 @@
----
-# tasks file for fastbaco
-  - name: Tarefas do LinuxMint
-    import_tasks: linuxmint.yml
-    when: ansible_distribution == "Linux Mint"
-
-  - name: configurando Teclado em Ingles do Dell 7567
-    import_tasks: teclado/teclado7567.yml
-    when: teclado_ingles == "TRUE"
