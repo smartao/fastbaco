@@ -1,0 +1,60 @@
+---
+# tasks file for fastbaco
+  # - name: ADICIONANDO | Repositorio Numix
+  #   raw: apt-add-repository ppa:numix/ppa -y
+
+  # - name: ADICIONANDO | Repositorio Tilix
+  #   raw: add-apt-repository ppa:webupd8team/terminix -y 
+  
+  # - name: ADICIONANDO | Repositorio Notepadqq
+  #   raw: add-apt-repository ppa:notepadqq-team/notepadqq -y  
+  
+  - name: INSTALANDO | Pacotes Basicos
+    apt:
+      name: "{{ pacotes_basicos }}"
+      update_cache: yes
+      state: present
+  
+  - name: INSTALANDO | Pacotes Rede
+    apt:
+      name: "{{ pacotes_rede }}"
+      state: present
+
+  - name: INSTALANDO | Pacotes Multimidia
+    apt:
+      name: "{{ pacotes_multimidia }}"
+      state: present
+
+  - name: INSTALANDO | Pacotes Codecs
+    apt:
+      name: "{{ pacotes_codecs }}"
+      state: present
+
+  - name: INSTALANDO | Pacotes ppa
+    apt:
+      name: "{{ pacotes_ppa }}"
+      state: present
+
+  - name: INSTALANDO | Google Chrome
+    import_tasks: chrome.yml
+
+
+  - name: CONFIGURANDO | Logs systemctl permanente
+    replace:
+      path: /etc/systemd/journald.conf
+      regexp: '^#Storage=auto'
+      replace: 'Storage=persistent'
+
+  - name: CONFIGURANDO | Desativando touchpad 
+    blockinfile:
+      path: /etc/udev/rules.d/01-touchpad.rules
+      create: yes
+      block: |
+        SUBSYSTEM=="input", KERNEL=="mouse[0-9]*", ACTION=="add", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/{{ usuario }}/.Xauthority", RUN+="/usr/bin/synclient TouchpadOff=1"
+        SUBSYSTEM=="input", KERNEL=="mouse[0-9]*", ACTION=="remove", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/{{ usuario }}/.Xauthority", RUN+="/usr/bin/synclient TouchpadOff=0"
+
+
+  # - name: ATUALIZANDO | Upgrade de todos os pacotes
+  #   apt: 
+  #     update_cache: yes
+  #     upgrade: full
