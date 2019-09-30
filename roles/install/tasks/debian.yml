@@ -34,20 +34,45 @@
     apt:
       name: "{{ pacotes_ppa }}"
       state: present
+  
+  - name: Instalando Steam
+    apt:
+      name: steam
+      state: present
+    tags:    
+      steam  
+
+  - name: Instalando VS Code
+    import_tasks: code.yml
+    tags: 
+      code
 
   - name: Instalando Google Chrome
     import_tasks: chrome.yml
     tags: 
       chrome
       
-  - name: Instalando Steam
-    import_tasks: steam.yml
-    tags:    
-      steam  
+  - name: Instalando docker
+    import_tasks: docker.yml
+    tags: 
+      docker
 
   - name: Atualizando todos os pacotes
     apt: 
       update_cache: yes
       upgrade: full
 
+  - name: Removendo pacotes desnecessarios
+    apt: 
+      name: "{{ items }}" 
+      state: absent
+      vars: 
+        items:
+        - ed
+        - nano
+        - vim-tiny
 
+  - name: Limpando cache de pacotes
+    apt:
+      autoremove: yes
+      purge: yes

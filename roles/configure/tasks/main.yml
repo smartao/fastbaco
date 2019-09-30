@@ -20,10 +20,10 @@
       regexp: '"false"'
       replace: '"true"'
     
-  - name: Setando Swappiness para 10
+  - name: Setando Swappiness para 5
     lineinfile:
       path: /etc/sysctl.conf
-      line: "vm.swappiness=10"
+      line: "vm.swappiness=5"
 
   - name: Criando link simbolico Tilix
     file:
@@ -32,6 +32,12 @@
       owner: "{{ usuario }}"
       group: "{{ usuario }}"
       state: link
-
+  
+  - name: Alterando a senha do root
+    user: 
+      name: root 
+      update_password: always 
+      password: "{{root_password}}"
+  
   - name: Importando tarefa para configurar teclado
     import_tasks: teclado.yml

@@ -1,8 +1,11 @@
 ---
 # vars file for install
 pacotes_basicos:
+  - apt-transport-https
   - baobab
+  - bash-completion
   - bc
+  - bzip2
   - calibre
   - cmatrix
   - cowsay
@@ -16,15 +19,17 @@ pacotes_basicos:
   - gsmartcontrol
   - keepass2
   - inxi
+  - less
   - linux-firmware
   - luckybackup
   - mono-complete
   - mousepad
   - python-apt
   - redshift-gtk
+  - software-properties-common
+  - screen
   - screenfetch
   - synapse
-  - sysstat
   - trash-cli
   - tree
   - ttf-mscorefonts-installer
@@ -33,6 +38,7 @@ pacotes_basicos:
   - vim
   - xbacklight
   - xfce4-goodies
+  - wget
 
 pacotes_multimidia:
   - audacious
@@ -57,6 +63,7 @@ pacotes_rede:
   - htop
   - iotop
   - iptraf-ng
+  - net-tools
   - nmap
   - openssh-server
   - openssh-client
@@ -64,9 +71,13 @@ pacotes_rede:
   - remmina
   - remmina-plugin-rdp
   - rsync
+  - snmpd
+  - sysstat
+  - telnet
   - tcpdump
   - traceroute
   - wireshark
+  - whois
 
 pacotes_ppa:
   - numix-icon-theme

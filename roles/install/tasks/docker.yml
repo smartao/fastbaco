@@ -1,0 +1,34 @@
+---
+# tasks file for install
+   - name: Instalando pacotes necessario para o docker
+     apt:
+      name: "{{ items }}"
+      state: latest
+      update_cache: yes
+     vars:
+        items:
+        - apt-transport-https 
+        - ca-certificates 
+        - curl  
+        - software-properties-common
+
+   - name: add docker apt-key
+     apt_key: 
+       url: https://download.docker.com/linux/ubuntu/gpg 
+       state: present 
+
+   - name: add docker apt repository
+     apt_repository: 
+       repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable' 
+       state: present 
+       filename: docker 
+       update_cache: yes
+
+   - name: Instalando o docker-ce
+     apt:
+      name: "{{ items }}"
+      state: latest
+      update_cache: yes
+     vars:
+       items:
+       - docker-ce 

@@ -1,6 +1,6 @@
 - hosts: mint
   gather_facts: True
   roles:
-     - install
-  #  - configure
-  #  - restore
+    - install
+    - configure
+   #- restore

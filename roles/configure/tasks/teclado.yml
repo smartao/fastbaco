@@ -1,6 +1,5 @@
 ---
 # tasks file for configure
-  # // CORRIGIR NOME DO ARQUIVO
   - name: Configurando Teclado em Ingles do Dell 7567
     import_tasks: teclados/teclado7567.yml
     when: teclado_7567 == "TRUE"
