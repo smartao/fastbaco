@@ -1,14 +1,8 @@
 ---
 # tasks file for install
 - name: install VS Code dependencies (apt)
-  apt:
-    name:
-      - ca-certificates
-      - apt-transport-https
-      - gconf2
-      - libasound2
-      - libgtk2.0-0
-      - libxss1
+  apt: 
+    name: "{{ pacotes_vscode }}"
     state: present
     update_cache: yes
 
@@ -27,3 +21,4 @@
   apt:
     name: code
     state: present
+  

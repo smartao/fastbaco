@@ -2,18 +2,24 @@
 # tasks file for install
   - name: Instalando Repositorio Numix
     raw: apt-add-repository ppa:numix/ppa -y
+    tags: 
+      add-ppas
 
   - name: Instalando Repositorio Tilix
     raw: add-apt-repository ppa:webupd8team/terminix -y 
-  
+    tags: 
+      add-ppas
+
   - name: Instalando Repositorio Notepadqq
     raw: add-apt-repository ppa:notepadqq-team/notepadqq -y  
-  
+    tags: 
+      add-ppas
+
   - name: Instalando Pacotes Basicos
     apt:
       name: "{{ pacotes_basicos }}"
-      update_cache: yes
       state: present
+      update_cache: yes
   
   - name:  Instalando Pacotes Rede
     apt:
@@ -51,26 +57,32 @@
     import_tasks: chrome.yml
     tags: 
       chrome
-      
+  
+  # TODO Verificar automaticamente se o diplay utiliza nvidia
+  - name: Instalando nvidia
+    import_tasks: nvidia.yml
+    tags: 
+      nvidia 
+
   - name: Instalando docker
     import_tasks: docker.yml
     tags: 
       docker
 
+  - name: Removendo pacotes desnecessarios
+    apt: 
+      name: 
+        - ed
+        - nano
+        - vim-tiny
+      state: absent
+    tags:
+      remove-pacotes
+
   - name: Atualizando todos os pacotes
     apt: 
       update_cache: yes
       upgrade: full
-
-  - name: Removendo pacotes desnecessarios
-    apt: 
-      name: "{{ items }}" 
-      state: absent
-      vars: 
-        items:
-        - ed
-        - nano
-        - vim-tiny
 
   - name: Limpando cache de pacotes
     apt:

@@ -1,0 +1,22 @@
+---
+# tasks file for install
+- name: ADICIONANDO | Repositorio Nvidia
+  raw: apt-add-repository ppa:graphics-drivers/ppa -y 
+  tags: 
+    add-ppas
+
+- name: INSTALANDO | Driver NVIDIA
+  apt: 
+    name: "{{ pacotes_nvidia }}"
+    state: present
+    update_cache: yes
+    install_recommends: yes
+
+- name: CONFIGURANDO | Grub para driver NVIDIA
+  replace:
+    path: /etc/default/grub
+    regexp: '^GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nvidia-drm.modeset=1"'
+    replace: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"'
+
+- name: ATUALIZANDO | Grub
+  raw: update-grub 

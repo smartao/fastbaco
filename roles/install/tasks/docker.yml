@@ -2,15 +2,9 @@
 # tasks file for install
    - name: Instalando pacotes necessario para o docker
      apt:
-      name: "{{ items }}"
-      state: latest
+      name: "{{ pacotes_docker }}"
+      state: present
       update_cache: yes
-     vars:
-        items:
-        - apt-transport-https 
-        - ca-certificates 
-        - curl  
-        - software-properties-common
 
    - name: add docker apt-key
      apt_key: 
