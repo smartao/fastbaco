@@ -25,6 +25,7 @@ pacotes_basicos:
   - mono-complete
   - mousepad
   - python-apt
+  - python3-pip
   - redshift-gtk
   - software-properties-common
   - screen
@@ -99,10 +100,7 @@ pacotes_docker:
   - curl  
   - software-properties-common
 
-# TODO Configurar local central com as principais configuracoes
-# se tem driver nvidia para instalar
-# e definir manualmente o driver que quer instalar
 pacotes_nvidia:
-  - nvidia-driver-430
+  - nvidia-driver-{{nvidia_version}}
   - nvidia-prime 
   - nvidia-settings

@@ -1,0 +1,9 @@
+usuarios: 
+    - sergei
+
+teclado_7567: "TRUE"
+
+nvidia_driver : "TRUE"
+nvidia_version: 430
+
+root_password: $6$C1QMlz90WpUaG/$gBm.lum8rrSh9YHDTNHkpN9O.fNgEw9o6btYWYgCfd1OH2RZtKuzLdK/9un/BlcxBQlSNxf7WAWvJPsL8ok6Z.

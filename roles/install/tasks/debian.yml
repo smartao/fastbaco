@@ -58,9 +58,9 @@
     tags: 
       chrome
   
-  # TODO Verificar automaticamente se o diplay utiliza nvidia
   - name: Instalando nvidia
     import_tasks: nvidia.yml
+    when: nvidia_driver == "TRUE"
     tags: 
       nvidia 
 
@@ -71,20 +71,17 @@
 
   - name: Removendo pacotes desnecessarios
     apt: 
-      name: 
-        - ed
-        - nano
-        - vim-tiny
+      name: ['ed', 'nano', 'vim-tiny']
       state: absent
     tags:
       remove-pacotes
-
-  - name: Atualizando todos os pacotes
-    apt: 
-      update_cache: yes
-      upgrade: full
 
   - name: Limpando cache de pacotes
     apt:
       autoremove: yes
       purge: yes
+
+  - name: Atualizando todos os pacotes
+    apt: 
+      update_cache: yes
+      upgrade: full
