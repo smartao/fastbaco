@@ -2,5 +2,7 @@
   gather_facts: True
   roles:
     - install
-    - configure
-   #- restore
+   # - configure
+   # - restore
+
+# Projeto com as acoes arquivados no Todoist

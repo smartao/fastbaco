@@ -1,28 +1,35 @@
 ---
 # tasks file for install
-   - name: Instalando pacotes necessario para o docker
-     apt:
-      name: "{{ pacotes_docker }}"
-      state: present
-      update_cache: yes
 
-   - name: add docker apt-key
-     apt_key: 
-       url: https://download.docker.com/linux/ubuntu/gpg 
-       state: present 
+# Metodo antigo
+  #  - name: Instalando pacotes necessario para o docker
+  #    apt:
+  #     name: "{{ pacotes_docker }}"
+  #     state: present
+  #     update_cache: yes
 
-   - name: add docker apt repository
-     apt_repository: 
-       repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable' 
-       state: present 
-       filename: docker 
-       update_cache: yes
+  #  - name: add docker apt-key
+  #    apt_key: 
+  #      url: https://download.docker.com/linux/ubuntu/gpg 
+  #      state: present 
 
-   - name: Instalando o docker-ce
-     apt:
-      name: "{{ items }}"
-      state: latest
-      update_cache: yes
-     vars:
-       items:
-       - docker-ce 
+  #  - name: add docker apt repository
+  #    apt_repository: 
+  #      repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable' 
+  #      state: present 
+  #      filename: docker 
+  #      update_cache: yes
+
+  #  - name: Instalando o docker-ce
+  #    apt:
+  #     name: "{{ items }}"
+  #     state: latest
+  #     update_cache: yes
+  #    vars:
+  #      items:
+  #      - docker-ce 
+  - name: Instalando pacotes necessario para o docker
+    apt:
+     name: docker.io
+     state: present
+     update_cache: yes

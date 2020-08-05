@@ -2,7 +2,6 @@
 # vars file for install
 pacotes_basicos:
   - apt-transport-https
-  - baobab
   - bash-completion
   - bc
   - bzip2
@@ -14,18 +13,12 @@ pacotes_basicos:
   - docky
   - flameshot
   - gedit
-  - git
-  - gnome-system-monitor
-  - gsmartcontrol
   - keepass2
-  - inxi
   - less
   - linux-firmware
   - luckybackup
-  - mono-complete
   - mousepad
-  - python-apt
-  - python3-pip
+  - p7zip-full
   - redshift-gtk
   - software-properties-common
   - screen
@@ -36,6 +29,7 @@ pacotes_basicos:
   - ttf-mscorefonts-installer
   - usb-creator-gtk
   - variety
+  - vagrant
   - vim
   - xbacklight
   - xfce4-goodies
@@ -52,17 +46,11 @@ pacotes_multimidia:
   - youtube-dl
 
 pacotes_codecs:
-  - ubuntu-restricted-extras 
-  - ubuntu-restricted-addons
-  - libavcodec-extra 
-  - libavcodec-extra
+  - mint-meta-codecs
 
 pacotes_rede:
-  - atop
   - freerdp-x11
   - gufw
-  - htop
-  - iotop
   - iptraf-ng
   - net-tools
   - nmap
@@ -73,12 +61,30 @@ pacotes_rede:
   - remmina-plugin-rdp
   - rsync
   - snmpd
-  - sysstat
   - telnet
   - tcpdump
   - traceroute
   - wireshark
   - whois
+
+pacotes_manutencao: 
+  - atop
+  - baobab
+  - gnome-system-monitor
+  - gsmartcontrol
+  - htop
+  - iotop
+  - inxi
+  - stress
+  - sysstat
+  - vagrant
+
+pacotes_dev:
+  - git
+  - mono-complete
+  - python-apt
+  - python3-pip
+  - python-setuptools
 
 pacotes_ppa:
   - numix-icon-theme
@@ -94,11 +100,11 @@ pacotes_vscode:
   - libgtk2.0-0
   - libxss1
 
-pacotes_docker:
-  - apt-transport-https 
-  - ca-certificates 
-  - curl  
-  - software-properties-common
+# pacotes_docker:
+#   - apt-transport-https 
+#   - ca-certificates 
+#   - curl  
+#   - software-properties-common
 
 pacotes_nvidia:
   - nvidia-driver-{{nvidia_version}}

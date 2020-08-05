@@ -1,0 +1,114 @@
+---
+# vars file for install
+pacotes_basicos:
+  - apt-transport-https
+  - bash-completion
+  - bc
+  - bzip2
+  - calibre
+  - cmatrix
+  - cowsay
+  - cups-pdf
+  - curl
+  - docky
+  - flameshot
+  - gedit
+  - keepass2
+  - less
+  - linux-firmware
+  - luckybackup
+  - mousepad
+  - p7zip-full
+  - redshift-gtk
+  - software-properties-common
+  - screen
+  - screenfetch
+  - synapse
+  - trash-cli
+  - tree
+  - ttf-mscorefonts-installer
+  - usb-creator-gtk
+  - vagrant
+  - variety
+  - vim
+  - xbacklight
+  - xfce4-goodies
+  - wget
+
+pacotes_multimidia:
+  - audacious
+  - ffmpeg
+  - lynx
+  - moc
+  - picard
+  - vlc
+  - xboxdrv
+  - youtube-dl
+
+pacotes_codecs:
+  - ubuntu-restricted-extras 
+  - ubuntu-restricted-addons
+  - libavcodec-extra 
+  - libavcodec-extra
+
+pacotes_rede:
+  - freerdp-x11
+  - gufw
+  - iptraf-ng
+  - net-tools
+  - nmap
+  - openssh-server
+  - openssh-client
+  - pptpd
+  - remmina
+  - remmina-plugin-rdp
+  - rsync
+  - snmpd
+  - telnet
+  - tcpdump
+  - traceroute
+  - wireshark
+  - whois
+
+pacotes_manutencao: 
+  - atop
+  - baobab
+  - gnome-system-monitor
+  - gsmartcontrol
+  - htop
+  - iotop
+  - inxi
+  - stress
+  - sysstat
+  - vagrant
+
+pacotes_dev:
+  - git
+  - mono-complete
+  - python-apt
+  - python3-pip
+
+pacotes_ppa:
+  - numix-icon-theme
+  - numix-icon-theme-circle
+  - tilix
+  - notepadqq 
+
+pacotes_vscode:
+  - ca-certificates
+  - apt-transport-https
+  - gconf2
+  - libasound2
+  - libgtk2.0-0
+  - libxss1
+
+# pacotes_docker:
+#   - apt-transport-https 
+#   - ca-certificates 
+#   - curl  
+#   - software-properties-common
+
+pacotes_nvidia:
+  - nvidia-driver-{{nvidia_version}}
+  - nvidia-prime 
+  - nvidia-settings

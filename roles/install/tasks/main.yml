@@ -1,5 +1,58 @@
 ---
 # tasks file for fastbaco
-  - name: Tarefas do Debian e derivados
-    import_tasks: debian.yml
-    when: ansible_os_family == "Debian"
+
+# Exemplos das variaveis possiveis
+# "ansible_distribution_release": "tina", 
+# "ansible_distribution": "Linux Mint", 
+# "ansible_os_family": "Debian",
+
+# - name: usado apenas para teste!!
+#   debug: msg={{lookup('first_found', findme, errors='ignore')}}
+#   vars:
+#     findme:
+#         - "{{ ansible_distribution|replace(' ', '') }}-{{ ansible_distribution_release }}.yml"
+#         - "{{ ansible_distribution|replace(' ', '') }}.yml"
+#         - "{{ ansible_os_family }}.yml"
+#   tags:
+#     teste, init
+
+- name: Teste Vars
+  include_vars: "{{ item }}"
+  with_first_found:
+    - files:
+        - "{{ ansible_distribution|replace(' ', '') }}-{{ ansible_distribution_release }}.yml"
+        - "{{ ansible_distribution|replace(' ', '') }}.yml"
+        - "{{ ansible_os_family }}.yml"
+      errors: ignore
+      paths:
+        - '{{ role_path }}/vars'
+  tags:
+    teste1
+
+- name: Incluindo variavieis conforme o de distribuicao Linux
+  include_vars: "{{ item }}"
+  with_first_found:
+    - files:
+        - "{{ ansible_distribution|replace(' ', '') }}-{{ ansible_distribution_release }}.yml"
+        - "{{ ansible_distribution|replace(' ', '') }}.yml"
+        - "{{ ansible_os_family }}.yml"
+      errors: ignore
+      paths:
+        - '{{ role_path }}/vars'
+  tags:
+    init
+ 
+- name: Incluindo tarefas conforme o tipo de distribuicao Linux
+  include_tasks: "{{ item }}"
+  with_first_found:
+    - files:
+        - "{{ ansible_distribution|replace(' ', '') }}-{{ ansible_distribution_release }}.yml"
+        - "{{ ansible_distribution|replace(' ', '') }}.yml"
+        - "{{ ansible_os_family }}.yml"
+      errors: ignore
+  tags:
+    init
+
+
+
+

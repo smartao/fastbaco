@@ -12,11 +12,30 @@
     update_cache: yes
     install_recommends: yes
 
-- name: CONFIGURANDO | Grub para driver NVIDIA
-  replace:
-    path: /etc/default/grub
-    regexp: '^GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nvidia-drm.modeset=1"'
-    replace: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"'
+# CONFIGURAR PARA SER A INSTALACAO DO DRIVER NVIDIA
+# - name: Setting basic SSH options
+#   lineinfile:
+#     dest: /etc/ssh/sshd_config
+#     state: present
+#     regexp: "{{ item.regexp }}"
+#     line: "{{ item.line }}"
+#   with_items:
+#     - { regexp: '#Port 22', line: 'Port 22' }
+#     - { regexp: '#PermitRootLogin yes', line: 'PermitRootLogin without-password' }
+
+
+    # - name: CONFIGURANDO | Grub para driver NVIDIA
+#   replace:
+#     path: /etc/default/grub
+#     regexp: 'GRUB_CMDLINE_LINUX=""'
+#     replace: '^GRUB_CMDLINE_LINUX="acpi_backlight=native acpi_osi="'
+
+# # nvidia-drm.modeset=1 utilizando para usar o computador antes de instalar o driver nvidia
+# - name: CONFIGURANDO | Grub para driver NVIDIA
+#   replace:
+#     path: /etc/default/grub
+#     regexp: '^GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nvidia-drm.modeset=1"'
+#     replace: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"'
 
 - name: ATUALIZANDO | Grub
   raw: update-grub 

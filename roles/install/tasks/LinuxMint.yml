@@ -1,45 +1,60 @@
 ---
 # tasks file for install
-  - name: Instalando Repositorio Numix
-    raw: apt-add-repository ppa:numix/ppa -y
-    tags: 
-      add-ppas
-
-  - name: Instalando Repositorio Tilix
-    raw: add-apt-repository ppa:webupd8team/terminix -y 
-    tags: 
-      add-ppas
-
-  - name: Instalando Repositorio Notepadqq
-    raw: add-apt-repository ppa:notepadqq-team/notepadqq -y  
-    tags: 
-      add-ppas
-
   - name: Instalando Pacotes Basicos
     apt:
       name: "{{ pacotes_basicos }}"
       state: present
       update_cache: yes
   
-  - name:  Instalando Pacotes Rede
-    apt:
-      name: "{{ pacotes_rede }}"
-      state: present
-
   - name: Instalando Pacotes Multimidia
     apt:
       name: "{{ pacotes_multimidia }}"
       state: present
-
+  
   - name: Instalando Codecs Pacotes Codecs
     apt:
       name: "{{ pacotes_codecs }}"
       state: present
 
+  - name:  Instalando Pacotes Rede
+    apt:
+      name: "{{ pacotes_rede }}"
+      state: present
+
+  - name:  Instalando Pacotes Manutencao
+    apt:
+      name: "{{ pacotes_manutencao }}"
+      state: present
+
+  - name:  Instalando Pacotes Dev
+    apt:
+      name: "{{ pacotes_dev }}"
+      state: present
+
+  - name: Instalando Repositorio Numix
+    raw: apt-add-repository ppa:numix/ppa -y
+    tags:
+      ppas
+      add-ppas
+
+  - name: Instalando Repositorio Tilix
+    raw: add-apt-repository ppa:webupd8team/terminix -y 
+    tags: 
+      ppas
+      add-ppas
+
+  - name: Instalando Repositorio Notepadqq
+    raw: add-apt-repository ppa:notepadqq-team/notepadqq -y  
+    tags:
+      ppas
+      add-ppas
+
   - name: Instalando Pacotes dos PPAs
     apt:
       name: "{{ pacotes_ppa }}"
       state: present
+    tags:
+      ppas
   
   - name: Instalando Steam
     apt:
