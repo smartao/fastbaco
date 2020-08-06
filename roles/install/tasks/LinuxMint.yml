@@ -60,6 +60,7 @@
     apt:
       name: steam
       state: present
+    when: steam == "TRUE"
     tags:    
       steam  
 

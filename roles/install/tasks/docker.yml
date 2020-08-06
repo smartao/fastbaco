@@ -28,6 +28,7 @@
   #    vars:
   #      items:
   #      - docker-ce 
+  
   - name: Instalando pacotes necessario para o docker
     apt:
      name: docker.io

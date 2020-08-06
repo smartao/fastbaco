@@ -1,14 +1,21 @@
 usuarios: 
     - sergei
 
-teclado_7567: "TRUE"
 
-nvidia_driver : "TRUE"
-nvidia_version: 430
+# Tipo de teclado 
+teclado_7567: "FALSE"
 
+# Instalar triver Nvidia?
+nvidia_driver : "FALSE"
+nvidia_version: 440
+
+# Instalar a Steam?
+steam: "FALSE"
+
+# Senha padrao root
 root_password: $6$C1QMlz90WpUaG/$gBm.lum8rrSh9YHDTNHkpN9O.fNgEw9o6btYWYgCfd1OH2RZtKuzLdK/9un/BlcxBQlSNxf7WAWvJPsL8ok6Z.
 
-vagrant_version: '2.2.5'
+vagrant_version: '2.2.9'
 vagrant_platform: x86_64
 vagrant_pkg_suffix: deb
 vagrant_mirror: https://releases.hashicorp.com/vagrant
